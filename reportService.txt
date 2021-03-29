@@ -1,0 +1,39 @@
+report service:
+
+
+Models:
+
+	Report:
+		id:             LONG
+		code:           LONG
+		dateCreated:    DATE, default: Date.now
+	
+
+APIs:
+
+	1-
+		@route		GET api/warehouse/availability
+		@access		Public
+		@res		[{code, nameProduct, nameWarehouse, unit, count}]
+
+	2-
+		@route		POST api/warehouse/availabilityByDate
+		@access		Public
+		@req		{incomingRemittanceDate, outcomingRemittanceDate}
+		@res		[{code, nameProduct, nameWarehouse, unit, count, incomingRemittanceDate, outcomingRemittanceDate}]
+
+
+	3-
+		@route		GET api/payment/list
+		@access		Public
+		@res		[{code, nameProduct, unit, count, unitCost, finalCost, date}]
+
+	4-
+		@route		GET api/order/list
+		@access		Public
+		@res		[{code, nameProduct, nameWarehouse, unit, count, date}]
+
+	5-
+		@route		GET api/transportation/list
+		@access		Public
+		@res		[{code, nameProduct, nameWarehouse, unit, count, unitCost, transportationCost, finalCost, source, destination, date}]
